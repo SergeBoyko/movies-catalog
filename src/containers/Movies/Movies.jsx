@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { getMovies, deleteMovie } from "../../services/moviesService";
 import MoviesTable from "../../components/UI/Table/MoviesTable";
@@ -28,23 +27,19 @@ class Movies extends Component {
 
   handleDelete = async movie => {
     const originalMovies = this.state.movies;
-    const movies = this.state.movies.filter(m => m._id !== movie._id);
+    const movies = originalMovies.filter(m => m._id !== movie._id);
     this.setState({ movies });
 
     try {
-      let response = await axios.delete(
-        "movies",
-        {
-          _id: movie._id
-        } + ".json"
-      );
+      await deleteMovie(movie._id);
     } catch (ex) {
-      if (ex.response && ex.response.status === 404) {
-        toast.error("This movie has been deleted !");
-        this.setState({ movies: originalMovies });
-      }
+      if (ex.response && ex.response.status === 404) console.log("x");
+      toast.error("This movie has already been deleted.");
+
+      this.setState({ movies: originalMovies });
     }
   };
+
   handleLike = movie => {
     const movies = [...this.state.movies];
     const index = movies.indexOf(movie);
@@ -102,7 +97,7 @@ class Movies extends Component {
     );
   }
 }
-
+/////////// Redux here ///////////
 const mapStateToProps = state => {
   const { searchQuery, currentPage, selectedGenre } = state;
   return {
