@@ -1,0 +1,3 @@
+export const SEARCH_QUERY = "SEARCH_QUERY";
+export const CURRENT_PAGE = "CURRENT_PAGE";
+export const SELECTED_GENRE = "SELECTED_GENRE";
