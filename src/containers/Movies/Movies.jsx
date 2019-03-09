@@ -33,19 +33,28 @@ class Movies extends Component {
     try {
       await deleteMovie(movie._id);
     } catch (ex) {
-      if (ex.response && ex.response.status === 404) console.log("x");
+      if (ex.response && ex.response.status === 404)
+        console.log("This movie has already been deleted.");
       toast.error("This movie has already been deleted.");
 
       this.setState({ movies: originalMovies });
     }
   };
 
-  handleLike = movie => {
-    const movies = [...this.state.movies];
-    const index = movies.indexOf(movie);
-    movies[index].liked = !movies[index].liked;
-    this.setState({ movies });
-  };
+  // handleLike = async movie => {
+  //   const originalMovies = this.state.movies;
+  //   const movies = [...this.state.movies];
+  //   const index = movies.indexOf(movie);
+  //   movies[index].liked = !movies[index].liked;
+  //   this.setState({ movies });
+
+  //   try {
+  //     await updateMovie(movie);
+  //   } catch (ex) {
+  //     this.setState({ movies: originalMovies });
+  //     toast.error('The status "Like" didn\'t change');
+  //   }
+  // };
 
   handleSort = path => {
     const sortColumn = { ...this.state.sortColumn };
@@ -84,13 +93,15 @@ class Movies extends Component {
           <MoviesTable
             movies={movies}
             onDelete={this.handleDelete}
-            onLike={this.handleLike}
+            // onLike={this.handleLike}
             onSort={this.handleSort}
             sortColumn={sortColumn}
             filtred={filtred}
             onPageChange={this.props.sentCurrentPage}
             pageSize={pageSize}
             currentPage={this.props.currentPageRedux}
+            user={this.props.user}
+            admin={this.props.admin}
           />
         </div>
       </div>

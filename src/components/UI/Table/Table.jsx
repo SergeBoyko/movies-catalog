@@ -6,7 +6,7 @@ import Pagination from "../Pagination/Pagination";
 
 const Table = ({
   movies,
-  onLike,
+  // onLike,
   onDelete,
   onSort,
   sortColumn,
@@ -14,13 +14,19 @@ const Table = ({
   pageSize,
   currentPage,
   filtred,
+  user,
+  admin,
   onPageChange
 }) => {
   return (
     <React.Fragment>
-      <Link to="/movies/new" className="btn btn-primary">
-        New Movie
-      </Link>
+      {admin && (
+        <div>
+          <Link to="/movies/new" className="btn btn-primary">
+            New Movie
+          </Link>
+        </div>
+      )}
       <h3 style={{ marginTop: 15, marginBottom: 15 }}>
         {filtred.length} in Data Base
       </h3>
@@ -29,7 +35,7 @@ const Table = ({
         <TableBody
           movies={movies}
           onDelete={onDelete}
-          onLike={onLike}
+          // onLike={onLike}
           columns={columns}
         />
       </table>

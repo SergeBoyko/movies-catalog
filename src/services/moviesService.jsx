@@ -15,6 +15,18 @@ export function getMovie(movieId) {
   return http.get(movieUrl(movieId));
 }
 
+// export function updateMovie(movie) {
+//   const body = {
+//     title: "Airplane 1",
+//     genreId: "5c802019fe90252d10201bd8",
+//     numberInStock: "2",
+//     dailyRentalRate: "2",
+//     liked: false
+//   };
+//   console.log("body movie", body);
+//   return http.put(movieUrl(movie._id), body);
+// }
+
 export function saveMovie(movie) {
   if (movie._id) {
     const body = { ...movie };

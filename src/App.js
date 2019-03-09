@@ -6,23 +6,50 @@ import Movies from "./containers/Movies/Movies";
 import LoginForm from "./components/UI/Form/LoginForm";
 import RegisterForm from "./components/UI/Form/RegisterForm";
 import MovieForm from "./components/UI/Form/MovieForm";
+import Customers from "./containers/Customers/Customers";
+import Rentals from "./containers/Rentals/Rentals";
+import LoginOut from "./components/LogOut/LogOut";
 import NotFound from "./components/NotFound/NotFound";
+import auth from "./services/authService";
 import "bootstrap/dist/css/bootstrap.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 class App extends Component {
+  state = {};
+
+  componentDidMount() {
+    const user = auth.getCurrentUser();
+    this.setState({ user });
+  }
+
   render() {
+    const { user } = this.state;
+
     return (
       <div>
         <ToastContainer />
-        <NavBar />
+        <NavBar user={user} admin={user && user.isAdmin} />
         <main className="container">
           <Switch>
             <Route path="/login" component={LoginForm} />
+            <Route path="/logout" component={LoginOut} />
+            <Route path="/customers" component={Customers} />
+            <Route path="/rentals" component={Rentals} />
             <Route path="/register" component={RegisterForm} />
-            <Route path="/movies/:id" component={MovieForm} />
-            <Route path="/movies" render={props => <Movies {...props} />} />
+            <Route
+              path="/movies/:id"
+              render={props => {
+                if (!user) return <Redirect to="/login" />;
+                return <MovieForm {...props} />;
+              }}
+            />
+            <Route
+              path="/movies"
+              render={props => (
+                <Movies {...props} user={user} admin={user && user.isAdmin} />
+              )}
+            />
             <Redirect from="/" exact to="/movies" />
             <Route path="/not-found" component={NotFound} />
             <Redirect path="/" to="/not-found" />
