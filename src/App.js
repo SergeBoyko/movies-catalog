@@ -30,7 +30,7 @@ class App extends Component {
       <div>
         <ToastContainer />
         <NavBar user={user} admin={user && user.isAdmin} />
-        <main className="container">
+        <main className="container" data-test='MainContainer'>
           <Switch>
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={LoginOut} />
