@@ -2,27 +2,26 @@ import React from 'react'
 import Pagination from './Pagination'
 import { shallow } from 'enzyme'
 import { findByTestAtrr, checkProps } from "../../utiles/testFunctions"
-import { debug } from 'util';
 
 const setUp = (props = {}) => {
     const component = shallow(<Pagination {...props} />)
     return component
 }
 
-// describe('Checking PropTypes', () => {
+describe('Checking PropTypes', () => {
 
-//     it('Should NOT throw a warning', () => {
-//         const expectedProps = {
-//             moviesCount: 1,
-//             pageSize: 1,
-//             currentPage: 1,
-//             onPageChange: () => { }
-//         };
-//         const propsError = checkProps(Pagination, expectedProps);
-//         expect(propsError).toBeUndefined();
-//     });
+    it('Should NOT throw a warning', () => {
+        const expectedProps = {
+            moviesCount: 1,
+            pageSize: 1,
+            currentPage: 1,
+            onPageChange: () => { }
+        };
+        const propsError = checkProps(Pagination, expectedProps);
+        expect(propsError).toBeUndefined();
+    });
 
-// });
+});
 
 describe('Should render <Pagination />', () => {
 
@@ -41,7 +40,6 @@ describe('Should render <Pagination />', () => {
 
         it(' pageCount > 1 ', () => {
             const component = findByTestAtrr(wrapper, 'PaginationComponent')
-            //  console.log(component.debug());
             expect(component).toHaveLength(1);
         })
     })
@@ -62,7 +60,6 @@ describe('Should render <Pagination />', () => {
 
         it(' pageCount === 1 ', () => {
             const component = findByTestAtrr(wrapper, 'PaginationComponent')
-            //   console.log(component.debug());
             expect(component).toBeDefined()
         })
     })
@@ -83,7 +80,6 @@ describe('Should render <Pagination />', () => {
 
         it(' pageCount === 0 ', () => {
             const component = findByTestAtrr(wrapper, 'NoMovies')
-            console.log(component.debug());
             expect(component).toHaveLength(1);
         })
     })

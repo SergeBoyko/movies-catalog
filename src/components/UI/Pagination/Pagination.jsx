@@ -6,18 +6,18 @@ const Pagination = props => {
 
   const pageCount = Math.ceil(moviesCount / pageSize);
   let mypages = Array.from(Array(pageCount), (x, index) => index + 1);
-  if (pageCount === 0) return <p>No Movies in Stock</p>;
+  if (pageCount === 0) return <p data-test='NoMovies'>No Movies in Stock</p>;
   if (pageCount === 1) return null;
 
   return (
-    <nav>
+    <nav data-test='PaginationComponent'>
       <ul className="pagination">
         {mypages.map(page => (
           <li
             key={page}
             className={page === currentPage ? "page-item active" : "page-item"}
           >
-            <button className="page-link" onClick={() => onPageChange(page)}>
+            <button data-test='ButtonNumberPage' className="page-link" onClick={() => onPageChange(page)}>
               {page}
             </button>
           </li>
