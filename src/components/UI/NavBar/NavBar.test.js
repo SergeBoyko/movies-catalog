@@ -13,11 +13,11 @@ describe('Render component  <NavBar/> without errors', () => {
         let wrapper;
         beforeEach(() => {
             const props = {
-                user: [{
+                user: {
                     _id: 1,
                     name: 'a',
                     email: 'a'
-                }],
+                },
                 admin: true
             }
             wrapper = setUp(props)
@@ -33,11 +33,11 @@ describe('Render component  <NavBar/> without errors', () => {
         let wrapper;
         beforeEach(() => {
             const props = {
-                user: [{
-                    _id: 1,
+                user: {
+                    _id: 2,
                     name: 'a',
                     email: 'a'
-                }],
+                },
                 admin: undefined
             }
             wrapper = setUp(props)
@@ -97,7 +97,7 @@ describe('Checking PropTypes', () => {
     it('Should NOT throw a warning', () => {
         const expectedProps = {
             user: {
-                _id: 1,
+                _id: 3,
                 name: 'a',
                 email: 'a'
             },
