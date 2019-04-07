@@ -96,11 +96,11 @@ describe('Checking PropTypes', () => {
 
     it('Should NOT throw a warning', () => {
         const expectedProps = {
-            user: [{
+            user: {
                 _id: 1,
                 name: 'a',
                 email: 'a'
-            }],
+            },
             admin: true
         };
         const propsError = checkProps(NavBar, expectedProps);

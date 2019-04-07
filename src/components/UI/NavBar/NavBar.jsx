@@ -83,7 +83,7 @@ const NavBar = ({ user, admin }) => {
 };
 
 NavBar.propTypes = {
-  user: PropTypes.array,
+  user: PropTypes.object,
   admin: PropTypes.bool
 }
 
