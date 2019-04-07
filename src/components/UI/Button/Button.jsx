@@ -5,14 +5,14 @@ const Button = ({ actionclass = "primary", title, clicked, ...rest }) => {
   const classes = `btn btn-${actionclass}`;
 
   return (
-    <button className={classes} onClick={clicked} {...rest}>
+    <button className={classes} onClick={clicked} {...rest} data-test='ButtonComponent'>
       {title}
     </button>
   );
 };
 
 Button.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   clicked: PropTypes.func
 }
 
