@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+
 
 class TableHead extends Component {
   renderSortIcon = column => {
@@ -25,6 +27,11 @@ class TableHead extends Component {
       </thead>
     );
   }
+}
+
+TableHead.propTypes = {
+  columns: PropTypes.array,
+  onSort: PropTypes.func
 }
 
 export default TableHead;

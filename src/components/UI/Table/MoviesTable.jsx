@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 import auth from "../../../services/authService";
 //import Like from "../Like/like";
 import Button from "../Button/Button";
@@ -80,6 +81,19 @@ class MoviesTable extends Component {
       />
     );
   }
+}
+
+MoviesTable.propTypes = {
+  movies: PropTypes.array.isRequired,
+  onDelete: PropTypes.func,
+  onSort: PropTypes.func,
+  sortColumn: PropTypes.object.isRequired,
+  pageSize: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func,
+  user: PropTypes.object,
+  admin: PropTypes.bool,
+  filtred: PropTypes.array.isRequired
 }
 
 export default MoviesTable;

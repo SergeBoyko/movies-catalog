@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const Button = ({ actionclass = "primary", title, clicked, ...rest }) => {
   const classes = `btn btn-${actionclass}`;
@@ -9,5 +10,10 @@ const Button = ({ actionclass = "primary", title, clicked, ...rest }) => {
     </button>
   );
 };
+
+Button.propTypes = {
+  title: PropTypes.string,
+  clicked: PropTypes.func
+}
 
 export default Button;

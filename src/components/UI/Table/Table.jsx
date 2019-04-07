@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
 import Pagination from "../Pagination/Pagination";
@@ -49,5 +50,19 @@ const Table = ({
     </React.Fragment>
   );
 };
+
+Table.propTypes = {
+  onDelete: PropTypes.func,
+  onSort: PropTypes.func,
+  sortColumn: PropTypes.object,
+  columns: PropTypes.array,
+  pageSize: PropTypes.number,
+  currentPage: PropTypes.number,
+  filtred: PropTypes.array,
+  user: PropTypes.object,
+  admin: PropTypes.bool,
+  onPageChange: PropTypes.func,
+}
+
 
 export default Table;

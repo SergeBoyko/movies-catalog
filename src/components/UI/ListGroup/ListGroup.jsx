@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types';
+
 
 const ListGroup = props => {
   const {
@@ -8,7 +10,6 @@ const ListGroup = props => {
     selectedGenre,
     selectGenre
   } = props;
-
   return (
     <div className="col-3">
       <ul className="list-group">
@@ -17,7 +18,7 @@ const ListGroup = props => {
             key={genre[valueProperty] || genre[textProperty]}
             className={
               selectedGenre === genre ||
-              (!selectedGenre && genre.name === "All Genres")
+                (!selectedGenre && genre.name === "All Genres")
                 ? "list-group-item active"
                 : "list-group-item"
             }
@@ -30,6 +31,15 @@ const ListGroup = props => {
     </div>
   );
 };
+
+
+ListGroup.propTypes = {
+  textProperty: PropTypes.string,
+  valueProperty: PropTypes.string,
+  genres: PropTypes.array,
+  selectedGenre: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  selectGenre: PropTypes.func
+}
 
 ListGroup.defaultProps = {
   valueProperty: "_id",

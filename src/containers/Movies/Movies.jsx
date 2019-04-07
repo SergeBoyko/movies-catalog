@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { toast } from "react-toastify";
+import PropTypes from 'prop-types';
 import { getMovies, deleteMovie } from "../../services/moviesService";
 import MoviesTable from "../../components/UI/Table/MoviesTable";
 import { paginate } from "../../components/utiles/paginate";
@@ -108,6 +109,20 @@ class Movies extends Component {
     );
   }
 }
+
+Movies.propTypes = {
+  movies: PropTypes.array,
+  onDelete: PropTypes.func,
+  onSort: PropTypes.func,
+  sortColumn: PropTypes.object,
+  pageSize: PropTypes.number,
+  currentPage: PropTypes.number,
+  onPageChange: PropTypes.func,
+  user: PropTypes.object,
+  admin: PropTypes.bool,
+  filtred: PropTypes.array
+}
+
 /////////// Redux here ///////////
 const mapStateToProps = state => {
   const { searchQuery, currentPage, selectedGenre } = state;
