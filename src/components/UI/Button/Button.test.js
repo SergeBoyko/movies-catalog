@@ -20,7 +20,7 @@ describe('Render <Button/>', () => {
     })
     it('with props', () => {
         const component = findByTestAtrr(wrapper, 'ButtonComponent')
-        expect(wrapper).toHaveLength(1);
+        expect(component).toHaveLength(1);
     })
 })
 

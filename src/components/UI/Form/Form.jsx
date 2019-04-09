@@ -62,12 +62,13 @@ class Form extends Component {
         error={errors[name]}
         value={data[name]}
         onChange={this.handleChange}
+        data-test={`${name}Component`}
       />
     );
   }
 
   renderButton(title) {
-    return <Button title={title} disabled={this.validate()} />;
+    return <Button title={title} data-test="Button" disabled={this.validate()} />;
   }
 
   renderSelect(name, label, options) {

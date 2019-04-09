@@ -21,6 +21,6 @@ describe('Render <Input/>', () => {
     })
     it('with props', () => {
         const component = findByTestAtrr(wrapper, 'InputComponent')
-        expect(wrapper).toHaveLength(1);
+        expect(component).toHaveLength(1);
     })
 })

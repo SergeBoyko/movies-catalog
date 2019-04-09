@@ -25,7 +25,7 @@ describe('Render component  <NavBar/> without errors', () => {
 
         it('Should render link Customers ', () => {
             const component = findByTestAtrr(wrapper, 'CustomersComponent')
-            expect(wrapper).toHaveLength(1);
+            expect(component).toHaveLength(1);
         })
 
     })
@@ -45,15 +45,15 @@ describe('Render component  <NavBar/> without errors', () => {
 
         it('Should render link Rentals ', () => {
             const component = findByTestAtrr(wrapper, 'RentalsComponent')
-            expect(wrapper).toHaveLength(1);
+            expect(component).toHaveLength(1);
         })
         it('Should render link Profile ("User Name") ', () => {
             const component = findByTestAtrr(wrapper, 'RentalsComponent')
-            expect(wrapper).toHaveLength(1);
+            expect(component).toHaveLength(1);
         })
         it('Should render link Logout ', () => {
             const component = findByTestAtrr(wrapper, 'LogoutComponent')
-            expect(wrapper).toHaveLength(1);
+            expect(component).toHaveLength(1);
         })
 
     })
@@ -65,12 +65,12 @@ describe('Render component  <NavBar/> without errors', () => {
 
         it('Should render link Login ', () => {
             const component = findByTestAtrr(wrapper, 'LoginComponent')
-            expect(wrapper).toHaveLength(1);
+            expect(component).toHaveLength(1);
         })
 
         it('Should render link Register ', () => {
             const component = findByTestAtrr(wrapper, 'RegisterComponent')
-            expect(wrapper).toHaveLength(1);
+            expect(component).toHaveLength(1);
         })
     })
     describe('Always', () => {
@@ -81,11 +81,11 @@ describe('Render component  <NavBar/> without errors', () => {
 
         it('Should render link Home', () => {
             const component = findByTestAtrr(wrapper, 'HomeComponent')
-            expect(wrapper).toHaveLength(1);
+            expect(component).toHaveLength(1);
         })
         it('Should render Search Box Component', () => {
             const component = findByTestAtrr(wrapper, 'SearchBoxComponent')
-            expect(wrapper).toHaveLength(1);
+            expect(component).toHaveLength(1);
         })
 
 
