@@ -91,20 +91,21 @@ describe('Render component  <NavBar/> without errors', () => {
 
     })
 
-})
-describe('Checking PropTypes', () => {
+    describe('Checking PropTypes', () => {
 
-    it('Should NOT throw a warning', () => {
-        const expectedProps = {
-            user: {
-                _id: 3,
-                name: 'a',
-                email: 'a'
-            },
-            admin: true
-        };
-        const propsError = checkProps(NavBar, expectedProps);
-        expect(propsError).toBeUndefined();
+        it('Should NOT throw a warning', () => {
+            const expectedProps = {
+                user: {
+                    _id: 3,
+                    name: 'a',
+                    email: 'a'
+                },
+                admin: true
+            };
+            const propsError = checkProps(NavBar, expectedProps);
+            expect(propsError).toBeUndefined();
+        });
+
     });
 
-});
+})

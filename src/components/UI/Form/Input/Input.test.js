@@ -23,4 +23,16 @@ describe('Render <Input/>', () => {
         const component = findByTestAtrr(wrapper, 'InputComponent')
         expect(component).toHaveLength(1);
     })
+
+    describe('Checking PropTypes', () => {
+        it('Should NOT throw a warning', () => {
+            const expectedProps = {
+                name: 'a',
+                label: 'a',
+                error: 'a'
+            };
+            const propsError = checkProps(Input, expectedProps);
+            expect(propsError).toBeUndefined();
+        });
+    });
 })

@@ -1,7 +1,7 @@
 import React from 'react'
 import LoginForm from './LoginForm'
 import { shallow } from 'enzyme'
-import { findByTestAtrr, checkProps } from "../../../utiles/testFunctions"
+import { findByTestAtrr } from "../../../utiles/testFunctions"
 
 const setUp = (props = {}) => {
     const component = shallow(<LoginForm {...props} />)
@@ -71,7 +71,7 @@ describe('Render <LoginForm/>', () => {
             wrapper = setUp(props)
         })
 
-        it(' Password ', () => {
+        it(' Button ', () => {
             const component = findByTestAtrr(wrapper, 'Button')
             expect(component).toHaveLength(1);
         })
