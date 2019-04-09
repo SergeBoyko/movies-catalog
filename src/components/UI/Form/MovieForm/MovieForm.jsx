@@ -1,8 +1,8 @@
 import React from "react";
 import Joi from "joi-browser";
-import Form from "./Form";
-import { getGenres } from "../../../services/genreService";
-import { getMovie, saveMovie } from "../../../services/moviesService";
+import Form from "../Form";
+import { getGenres } from "../../../../services/genreService";
+import { getMovie, saveMovie } from "../../../../services/moviesService";
 
 class MovieForm extends Form {
   state = {
@@ -81,8 +81,8 @@ class MovieForm extends Form {
 
   render() {
     return (
-      <div>
-        <h1>Movie Form</h1>
+      <div data-test="MovieFormComponent">
+        <h1 data-test="Header">Movie Form</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("title", "Title")}
           {this.renderSelect("genreId", "Genre", this.state.genres)}

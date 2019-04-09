@@ -82,6 +82,7 @@ class Form extends Component {
         options={options}
         onChange={this.handleChange}
         error={errors[name]}
+        data-test={`${name}Component`}
       />
     );
   }
