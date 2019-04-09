@@ -98,4 +98,18 @@ describe('Render <MovieForm/>', () => {
         })
 
     })
+    describe('Should render Button', () => {
+        let wrapper;
+        beforeEach(() => {
+            const props = {
+                title: 'Title'
+            }
+            wrapper = setUp(props)
+        })
+
+        it(' Button ', () => {
+            const component = findByTestAtrr(wrapper, 'Button')
+            expect(component).toHaveLength(1);
+        })
+    })
 })
