@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import NavBar from "./components/UI/NavBar/NavBar";
 import Movies from "./containers/Movies/Movies";
 import LoginForm from "./components/UI/Form/LoginForm/LoginForm";
-import RegisterForm from "./components/UI/Form/RegisterForm";
+import RegisterForm from "./components/UI/Form/RegisterForm/RegisterForm";
 import MovieForm from "./components/UI/Form/MovieForm/MovieForm";
 import Customers from "./containers/Customers/Customers";
 import Rentals from "./containers/Rentals/Rentals";
