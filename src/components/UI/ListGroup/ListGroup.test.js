@@ -25,10 +25,7 @@ describe('Render <ListGroup/>', () => {
         expect(component).toHaveLength(1);
     })
 
-    // it('Checking PropTypes', () => {
-    //     const propsError = checkProps(ListGroup, props);
-    //     expect(propsError).toBeUndefined();
-    // })
+
     describe('Checking PropTypes', () => {
 
         it('Should NOT throw a warning', () => {
