@@ -27,7 +27,8 @@ class App extends Component {
     const { user } = this.state;
 
     return (
-      <div>
+      <div >
+        <div style={{ backgroundColor: "#f8f9fa", height: '60px', width: '100%', padding: 'none',margin: 'none' }}></div>
         <ToastContainer />
         <NavBar user={user} admin={user && user.isAdmin} />
         <main className="container" data-test='MainContainer'>
