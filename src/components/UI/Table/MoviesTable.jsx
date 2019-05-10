@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import auth from "../../../services/authService";
 //import Like from "../Like/like";
 import Button from "../Button/Button";
-import Table from "./Table";
+import Table from "../Table/Table/Table";
 
 class MoviesTable extends Component {
   constructor() {
