@@ -15,7 +15,7 @@ describe('Render <Select/>', () => {
             name: 'a',
             label: 'a',
             onChange: () => { },
-            options: [{ '_id': 1, 'value': 'a' }, { '_id': 2, 'value': 'b' }],
+            options: [{ '_id': 1, 'name': 'a' }, { '_id': 2, 'name': 'b' }],
             value: 'a',
             error: ''
 
@@ -33,7 +33,7 @@ describe('Render <Select/>', () => {
                 name: 'a',
                 label: 'a',
                 onChange: () => { },
-                options: [{ '_id': 1, 'value': 'a' }, { '_id': 2, 'value': 'b' }],
+                options: [{ '_id': 1, 'name': 'a' }, { '_id': 2, 'name': 'b' }],
                 value: 'a',
                 error: 'a'
             };
