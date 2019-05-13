@@ -2,7 +2,8 @@ import axios from "axios";
 import logger from "./logService";
 import { toast } from "react-toastify";
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL; // this line remove after deploy
+//axios.defaults.baseURL = process.env.REACT_APP_API_URL; // this line remove after deploy
+axios.defaults.baseURL = 'https://movie-catalog-bk1.herokuapp.com/api'; // this line remove after deploy
 
 axios.interceptors.response.use(null, error => {
   const expectedError =
