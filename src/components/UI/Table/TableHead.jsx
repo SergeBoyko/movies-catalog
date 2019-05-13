@@ -13,7 +13,7 @@ class TableHead extends Component {
   render() {
     const { columns, onSort } = this.props;
     return (
-      <thead>
+      <thead data-test='TableHeadComponent'>
         <tr>
           {columns.map(column => (
             <th
