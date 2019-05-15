@@ -11,7 +11,7 @@ const ListGroup = props => {
     selectGenre
   } = props;
   return (
-    <div className="col-3" data-test="ListGroupComponent">
+    <div className="col-12 col-md-3 mb-3" data-test="ListGroupComponent">
       <ul className="list-group">
         {genres.map(genre => (
           <li
