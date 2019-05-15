@@ -28,7 +28,7 @@ class App extends Component {
 
     return (
       <div >
-        <div style={{ backgroundColor: "#f8f9fa", height: '60px', width: '100%', padding: 'none',margin: 'none' }}></div>
+        <div style={{ backgroundColor: "#f8f9fa", height: '60px', width: '100%', padding: 'none', margin: 'none' }}></div>
         <ToastContainer />
         <NavBar user={user} admin={user && user.isAdmin} />
         <main className="container" data-test='MainContainer'>
@@ -52,6 +52,7 @@ class App extends Component {
               )}
             />
             <Redirect from="/" exact to="/movies" />
+            <Redirect from="/profile" exact to="/movies" />
             <Route path="/not-found" component={NotFound} />
             <Redirect path="/" to="/not-found" />
           </Switch>
