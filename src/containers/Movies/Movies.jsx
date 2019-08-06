@@ -9,6 +9,7 @@ import { paginate } from "../../components/utiles/paginate";
 import ListGroup from "../../components/UI/ListGroup/ListGroup";
 import { getGenres } from "../../services/genreService";
 import { CURRENT_PAGE, SELECTED_GENRE } from "../../redux/store/actionsTypes";
+import Spinner from './../../components/Spinner/Spinner';
 
 class Movies extends Component {
   state = {
@@ -16,6 +17,7 @@ class Movies extends Component {
     genres: [],
     pageSize: 4,
     filtred: "",
+    loading: true,
     sortColumn: { path: "title", order: "asc" }
   };
 
@@ -23,7 +25,7 @@ class Movies extends Component {
     const { data } = await getGenres();
     const { data: movies } = await getMovies();
     const genres = [{ name: "All Genres" }, ...data];
-    this.setState({ movies, genres });
+    this.setState({ movies, genres, loading: false });
   }
 
   handleDelete = async movie => {
@@ -69,7 +71,7 @@ class Movies extends Component {
   };
 
   render() {
-    const { pageSize, movies: AllMovies, genres, sortColumn } = this.state;
+    const { pageSize, movies: AllMovies, genres, sortColumn, loading } = this.state;
 
     let filtred = AllMovies;
     if (this.props.squery)
@@ -83,6 +85,7 @@ class Movies extends Component {
 
     const sorted = _.orderBy(filtred, [sortColumn.path], [sortColumn.order]);
     const movies = paginate(sorted, this.props.currentPageRedux, pageSize);
+    if (loading) return <Spinner />
     return (
       <div className="row">
         <ListGroup
